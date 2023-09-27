@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "AmazonLnxApp1": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
