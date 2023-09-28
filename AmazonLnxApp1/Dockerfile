@@ -30,6 +30,6 @@ RUN dotnet publish "AmazonLnxApp1.csproj" -c Release -o /app/publish /p:UseAppHo
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENV PATH=$PATH:/app/clidriver/lib:/app/clidriver/adm
+#ENV PATH=$PATH:/app/clidriver/lib:/app/clidriver/adm
 CMD tail -f /dev/null
 #ENTRYPOINT ["dotnet", "AmazonLnxApp1.dll"]
