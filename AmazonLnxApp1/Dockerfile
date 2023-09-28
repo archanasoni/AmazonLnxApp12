@@ -14,6 +14,7 @@ FROM amazonlinux:2 AS build
 WORKDIR /src
 RUN rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
 Run yum install -y dotnet-sdk-6.0
+# requires for OC environment
 COPY . AmazonLnxApp1/
 RUN ls -ltr
 Run pwd
@@ -29,4 +30,6 @@ RUN dotnet publish "AmazonLnxApp1.csproj" -c Release -o /app/publish /p:UseAppHo
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "AmazonLnxApp1.dll"]
+ENV PATH=$PATH:/app/clidriver/lib:/app/clidriver/adm
+CMD tail -f /dev/null
+#ENTRYPOINT ["dotnet", "AmazonLnxApp1.dll"]
