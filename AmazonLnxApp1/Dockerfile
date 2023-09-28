@@ -14,7 +14,7 @@ FROM amazonlinux:2 AS build
 WORKDIR /src
 RUN rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
 Run yum install -y dotnet-sdk-6.0
-COPY . .
+COPY . AmazonLnxApp1/
 RUN ls -ltr
 Run pwd
 #COPY ["AmazonLnxApp1/AmazonLnxApp1.csproj", "AmazonLnxApp1/"]
