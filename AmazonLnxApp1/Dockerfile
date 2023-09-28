@@ -13,8 +13,11 @@ ENV LD_LIBRARY_PATH="/app/clidriver/lib/:/app/clidriver/adm/:/app/bin/Debug/net6
 FROM amazonlinux:2 AS build
 WORKDIR /src
 RUN rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
-Run yum install -y dotnet-sdk-6.0 
-COPY ["AmazonLnxApp1/AmazonLnxApp1.csproj", "AmazonLnxApp1/"]
+Run yum install -y dotnet-sdk-6.0
+COPY . .
+RUN ls -ltr
+Run pwd
+#COPY ["AmazonLnxApp1/AmazonLnxApp1.csproj", "AmazonLnxApp1/"]
 RUN dotnet restore "AmazonLnxApp1/AmazonLnxApp1.csproj"
 COPY . .
 WORKDIR "/src/AmazonLnxApp1"
